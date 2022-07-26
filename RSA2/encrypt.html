@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Encryption</title>
+
+</head>
+<body>
+  
+   
+    <h1>Welcome to RSA Online Encryptor</h1>
+
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Enter the Text You want to Encrypt</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <button type="button" id="submit-button" class="btn btn-success" pys-onClick="encrypt">Encrypt</button>
+    </div>
+
+    <h3>The Encrypted text is:</h3>
+    <p id="test-output"></p>
+    <div class="form-group">
+      <label for="decrypt_message">Enter the Text You want to Encrypt</label>
+      <textarea class="form-control" id="decrypt_message" rows="3"></textarea>
+      <button type="button" id="decrypt-button" class="btn btn-success" pys-onClick="decrypt">Decrypt</button>
+    </div>
+
+    <h3>The Decrypted text is:</h3>
+    <p id="decrypt-output"></p>
+    <py-env>
+      - rsa
+    </py-env>
+     <py-script> 
+from js import console
+import rsa
+
+def encrypt(*args, **kwargs):
+
+    #print('args:', args)
+    #print('kwargs:', kwargs)
+
+    console.log(f'args: {args}')
+    console.log(f'kwargs: {kwargs}')
+    
+    text = Element('exampleFormControlTextarea1').element.value
+
+    publicKey, privateKey = rsa.newkeys(512)
+    message=text
+    encryptedMessage=rsa.encrypt(message.encode(),publicKey)
+
+    Element('test-output').element.innerText = encryptedMessage
+
+    #The decryption process is done below
+    input_text = Element('decrypt_message').element.value
+    decoded_message=rsa.decrypt(encryptedMessage,privateKey).decode()
+    print(decoded_message)
+    Element('decrypt-output').element.innerText = decoded_message  
+    </py-script> 
+</body>
+</html>
