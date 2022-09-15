@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <help_text/>
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>150</x>
+      <y>80</y>
+      <w>170</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>StudentAccount
+--
+-first_name: str
+-last_name: str
+-student_id: str
+-gender: str
+--
++login()
++logout()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>390</x>
+      <y>80</y>
+      <w>120</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>Book
+--
+-title: str
+-author: str
+-book_color: str
+-book_id: str
+-shelf_number: str
+--
++borrow()
++return()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1190</x>
+      <y>0</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+</diagram>
