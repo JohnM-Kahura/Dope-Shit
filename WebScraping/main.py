@@ -32,7 +32,7 @@ for house in houses:
     house_names.append(house_name)
     final_objs.append(get_stats(house_link))
 print(final_objs[0])
-
+# make it 400 commit
 fields = ['Name', 'Flooring', 'Capacity' 'Gender', 'Mattress_Size','Number_of_Floors','Room_Types'] 
 with open('houses_scrape.csv', 'w') as csvfile: 
     # creating a csv writer object 
