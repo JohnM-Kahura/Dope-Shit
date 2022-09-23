@@ -6,11 +6,11 @@ def get_stats(link):
 
     soup=BeautifulSoup(html,'lxml')
     # get all the stats of a given house
-    house_stats_list=soup.find("div",class_='stats row')
+    house_stats=soup.find("div",class_='stats row')
 
-    all_html_content=house_stats_list.find_all("div")
+    capacity=house_stats.find_all("div")
     stats={}
-    for i in all_html_content:
+    for i in capacity:
         stat=i.text.split('\n')
 
         x=stat[0].split(':')
@@ -28,7 +28,7 @@ for house in university_houses:
     link_to_house=house.find('a').get('href')
     house_names.append(house_name)
     stats.append(get_stats(link_to_house))
-fields = ['all_html_content', 'Gender', 'Name' 'Flooring', 'Number of Floors','Mattress Size','Room_Types'] 
+fields = ['Capacity', 'Gender', 'Name' 'Flooring', 'Number of Floors','Mattress Size','Room_Types'] 
 with open('houses.csv', 'w') as c: 
     writer = csv.writer(c) 
     writer.writerow(fields)         
@@ -37,7 +37,7 @@ with open('houses.csv', 'w') as c:
             pass
         else:
             stat['Room Types']=' '
-        row=[stat['all_html_content'],stat['Gender'],house_names[i].strip(),stat['Flooring'],stat['Number of Floors'],stat['Mattress Size'],stat['Room Types']]    
+        row=[stat['Capacity'],stat['Gender'],house_names[i].strip(),stat['Flooring'],stat['Number of Floors'],stat['Mattress Size'],stat['Room Types']]    
       
 
         writer.writerow(row)
