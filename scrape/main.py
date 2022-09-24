@@ -22,6 +22,7 @@ html=requests.get('https://web.saumag.edu/housing/options/').text
 soup=BeautifulSoup(html,'lxml')
 university_houses=soup.find_all("div",class_='dp-wrap')
 stats=[]
+#break
 house_names=[]
 for house in university_houses:
     house_name=house.find('h3').text
