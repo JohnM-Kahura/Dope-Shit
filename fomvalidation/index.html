@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <script>
+            function validateForm(){
+                let name=document.forms['form']['fullname'].value
+                let email=document.forms['form']['email'].value
+                let password=document.forms['form']['password'].value
+                let image=document.forms['form']['image'].value
+               if(name==''){
+                alert("Please Enter your name");
+                return false;
+               } if(email==''){
+                alert("Please Enter your Email");
+                return false;
+               }if(email==''){
+                alert("Please Enter your Email");
+                return false;
+               }
+               var passwordPattern=  "/^[A-Za-z]\w{7,14}$/";
+               if (!password.match(passwordPattern)){
+                alert('You have a weak passwordchoose another password')
+               }
+               
+            }
+    </script>
+</head>
+<body>
+    <form action="/action.php" id="userinfo" method="post" name="form" onsubmit="return validateForm()">
+        <label for="fullname">Full name:</label><br>
+        <input type="text" id="fullname"><br><br>
+        <label for="email">Email:</label><br>
+        <input type="text" id="email"><br><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password"><br><br>
+        <label for="passport">Upload a passport image</label>
+        <input type="file" id="image"> <br>
+        <input type="submit" value="Submit">
+      </form>
+</body>
+</html>
