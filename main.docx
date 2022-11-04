@@ -1,0 +1,62 @@
+public class Memory { //this is Java
+ class Line_Memory{ //inner class holds one line of the program
+ short lineNumber;
+ String line;
+ 
+ }
+ private Line_Memory[] program; //the entire SIL program is in this array
+ private int curr_line; //the current line that is executing
+ private boolean mEOL, mEOF; //immulate EOL and EOF in the memory
+ …. more data and reading and parsing code
+} // class M
+INTEGER ID [,ID]*
+INPUT ID [,ID]*
+GOTO line_number
+IF expression ‘=’ | ‘>’ |’ < ’| ’!’ expression THEN statement
+if(a==b) { 
+ c = a * b; //assuming c needed later
+ System.out.println (“a * b = “ +c); //forgive the dumb quotes – this LibreOffice
+}
+x = c + x;
+…
+In SIL we would do this:
+50 IF A ! B THEN GOTO 80
+60 LET C = A * B
+65 PRINT “a * b = ”
+70 PRINTLN C
+80 X = C + 
+10 PRINTLN "Hello, world!"
+20 END
+10 PRINT "Enter a number:"
+20 INTEGER number
+30 INPUT number
+40 PRINT "The number is "
+50 PRINTLN number
+60 END
+10 INTEGER A, B, C
+20 LET A = 1
+30 LET B = 19
+40 LET C = A+B*4
+50 PRINT "C="
+60 PRINTLN C
+70 END
+10 println "Testing if then"
+20 integer a, b
+25 print "Enter a:"
+30 input a
+35 print "Enter b:"
+40 input b
+50 if a < b then println "a < b"
+60 if a = b then println "a = b"
+70 if a > b then println "a > b"
+80 end
+10 println "If block test"
+20 integer a, b
+30 print "Enter a b:"
+40 input a,b
+50 if a < b then goto 100
+60 println "in if block"
+70 println "doing a second statement"
+80 println "and a third"
+100 println "out of the block"
+200 end
